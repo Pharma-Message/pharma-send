@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rou+^(fylarg6&%s=c7%1r_7y7am=x(u-ydxwmop^z^4y5#@xz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['pharma-send.azurewebsites.net']
+ALLOWED_HOSTS = ['pharma-send.azurewebsites.net', '127.0.0.1', 'localhost', "*"]
 
 
 # Application definition
@@ -33,8 +33,8 @@ ALLOWED_HOSTS = ['pharma-send.azurewebsites.net']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.contenttypes',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'pharmasend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -64,7 +64,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
-    },
+    }
 ]
 
 WSGI_APPLICATION = 'pharmasend.wsgi.application'
@@ -123,3 +123,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = BASE_DIR / 'static_files'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+LOGIN_REDIRECT_URL = "/"
