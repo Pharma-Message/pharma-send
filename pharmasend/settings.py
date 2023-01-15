@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['pharma-send.azurewebsites.net', '127.0.0.1', 'localhost', "*"]
 
+CSRF_TRUSTED_ORIGINS = ["https://www.pharma-send.azurewebsites.net", ]
 
 # Application definition
 
