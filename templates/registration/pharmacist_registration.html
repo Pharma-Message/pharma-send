@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="create_pharmacist">
+        <h2> Welcome aboard to Pharma-Send. Revolutionizing communication between doctors and pharmacists.!</h2>
+        <form class="site_form" method="post" action="pharmacist">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class = "smallbtn">Register</button>
+        </form>
+    </div>
+{% endblock %}

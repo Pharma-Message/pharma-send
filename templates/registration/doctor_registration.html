@@ -1,12 +1,13 @@
+<!-- Pharmacist "create account" page-->
 {% extends 'base.html' %}
 
 {% block content %}
     <div class="create_doctor">
-        <h2> Welcome aboard to Pharma-Send. Revolutionizing communication!</h2>
+        <h2> Welcome aboard to Pharma-Send. Revolutionizing communication between doctors and pharmacists!</h2>
         <form class="site_form" method="post" action="doctor">
             {% csrf_token %}
             {{ form }}
-            <button type="submit" class = "smallbtn">Register</button>
+            <button type="submit" class = "evensmallerbtn">Register</button>
         </form>
     </div>
 {% endblock %}
