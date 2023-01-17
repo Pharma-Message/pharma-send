@@ -1,0 +1,19 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Register for an account{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  You are already logged in!
+{% else %}
+<p>Which account would you like to create?</p>
+  <a href="{% url 'doctor_registration' %}">Doctor</a>
+
+  <a href="{% url 'pharmacist_registration' %}">Pharmacist</a>
+  <!-- Pharmacist button(need to be created)-->
+
+  <a href="{% url 'hospital_registration' %}" class = "btn" >Hospital</a>
+  <!-- Hospital button(need to be created)-->
+{% endif %}
+{% endblock %}
