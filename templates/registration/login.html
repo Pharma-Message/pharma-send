@@ -4,18 +4,19 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<h2>Log in as Doctor</h2>
+<h2>Log in as a Doctor</h2>
 <p>
 <form method="post">
   {% csrf_token %}
   {{ form.as_table }}
-  <button type="evensmallerbtn"></button>
+  <button type="smallbtn"></button>
 </p>
-<br> Log in as Pharmacist</br>
+<h3> Log in as a Pharmacist
+</h3>
 <p>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_table }}
-    <button type="smallbtn"></button>
-</form>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_table }}
+  <button type="smallbtn"></button>
+</p>
 {% endblock %}
