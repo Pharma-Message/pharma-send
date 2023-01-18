@@ -5,8 +5,10 @@
     <div class="create_doctor">
         <h2> Welcome aboard to Pharma-Send. Revolutionizing communication between doctors and pharmacists!</h2>
         <form class="site_form" method="post" action="doctor">
-            {% csrf_token %}
-            {{ form }}
+            <table border="1">
+                {% csrf_token %}
+                {{ form.as_table }}
+            </table>
             <button type="submit" class = "smallbtn">Register</button>
         </form>
     </div>

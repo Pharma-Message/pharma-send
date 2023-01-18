@@ -1,4 +1,3 @@
 Django
 django-crispy-forms
 whitenoise
-sqlite3

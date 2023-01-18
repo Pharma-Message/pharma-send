@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
-from pharmasend.view import doctor_create
+from accountforms.views import doctor_create, pharmacist_create
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,7 +24,7 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'), 
     path('registration/', TemplateView.as_view(template_name='registration/registration.html'), name='registration'),
     path('registration/doctor', doctor_create, name='doctor_registration'),
-    path('registration/pharmacist', doctor_create, name='pharmacist_registration'),
+    path('registration/pharmacist', pharmacist_create, name='pharmacist_registration'),
     path('registration/hospital', doctor_create, name='hospital_registration')
     #path('registration/', TemplateView.as_view(template_name='registration.html'), name='registration')
 ]

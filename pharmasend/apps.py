@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
-class DoctorConfig(AppConfig):
-    name = 'pharmasend.models.Doctor'
-    verbose_name = 'Doctor Account'
+class PharmasendConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'pharmasend'
+    verbose_name = 'Pharma-send'

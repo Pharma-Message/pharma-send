@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accountforms',
+    'pharmasend.apps.PharmasendConfig',
+    'accountforms.apps.AccountformsConfig'
 ]
 
 MIDDLEWARE = [
