@@ -5,13 +5,17 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
+  <p> Hi {{ user.username }}! </p>
+  <a href="{% url 'logout' %}">
+    <button class = "smallbtn">
+     Log Out
+    </button>
+  </a>
+  <br>
 {% else %}
   <p>You are not logged in. Please proceed to the login below.</p>
   <a href="{% url 'login' %}">
-    <button
-     class = small.btn
-     >
+    <button class = "smallbtn">
      Log In
     </button>
   </a>

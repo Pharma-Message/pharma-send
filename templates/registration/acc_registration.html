@@ -2,9 +2,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="create_doctor">
-        <h2> Welcome aboard to Pharma-Send. Revolutionizing communication between doctors and pharmacists!</h2>
-        <form class="site_form" method="post" action="doctor">
+    <div class="create_acc">
+        <h2> Welcome aboard to Pharma-Send. Revolutionizing communication between doctors and pharmacists! </h2>
+        <form class="site_form" method="post" action="account">
             {% csrf_token %}
             <table>
             {% for field in form %}

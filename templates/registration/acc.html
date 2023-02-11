@@ -1,0 +1,29 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<h1 class="center">
+    Primary User Information
+</h2>
+<table border="0" class="logintable" >
+    <tr>
+        <th scope="col"> <b>Property</b></th>
+        <th scope="col"> <b>Value</b></th>
+    </tr>
+    <tr>
+        <td scope="row" class="center">Username</td>
+        <td scope="row" class="center">{{user.username}}</td>
+    </tr>
+    <tr>
+        <td scope="row" class="center">eMail</td>
+        <td scope="row" class="center">{{user.email}}</td>
+    </tr>
+    <tr>
+        <td scope="row" class="center">Password</td>
+        <td scope="row" class="center"><i>Hidden, Must be reset</i></td>
+    </tr>
+</table>
+{% endblock %}
