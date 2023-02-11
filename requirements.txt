@@ -1,3 +1,7 @@
 Django
 django-crispy-forms
 whitenoise
+daphne
+django-debug-toolbar
+pyodbc 
+psycopg2-binary

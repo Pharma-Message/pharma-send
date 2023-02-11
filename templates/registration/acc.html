@@ -26,4 +26,61 @@
         <td scope="row" class="center"><i>Hidden, Must be reset</i></td>
     </tr>
 </table>
+<<<<<<< Updated upstream
+=======
+<br>
+<h1 class="center">
+    Pharmacist Information
+</h2>
+<table border="0" class="logintable" >
+    {% if puser %}
+    <tr>
+        <th scope="col"> <b>Property</b></th>
+        <th scope="col"> <b>Value</b></th>
+    </tr>
+    <tr>
+        <td scope="row" class="center">Clinic</td>
+        <td scope="row" class="center">{{user.puser.clinic}}</td>
+    </tr>
+    {% else %}
+    <tr>
+        <th scope="col"><i>Not Registered Yet</i></th>
+    </tr>
+    {% endif %}
+</table>
+
+<br>
+<h1 class="center">
+    Doctor Information
+</h2>
+<table border="0" class="logintable" >
+    {% if duser %}
+    <tr>
+        <th scope="col"> <b>Property</b></th>
+        <th scope="col"> <b>Value</b></th>
+    </tr>
+    <tr>
+        <td scope="row" class="center">Name</td>
+        <td scope="row" class="center">{{user.duser.name}}</td>
+    </tr>
+    <tr>
+        <td scope="row" class="center">Doctor ID</td>
+        <td scope="row" class="center">{{user.duser.doctorid}}</td>
+    </tr>
+    <tr> 
+        <td scope="row" class="center">Send An Order</td>
+        <td scope="row" class="center">
+            <a href="{% url 'send_order'%}" class="center">
+                <button class="smallbtn center"> Send </button>
+            </a>
+        </td>
+    </tr>
+    {% else %}
+    <tr>
+        <th scope="col"><i>Not Registered Yet</i></th>
+    </tr>
+    {% endif %}
+</table>
+
+>>>>>>> Stashed changes
 {% endblock %}

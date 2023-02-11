@@ -1,0 +1,21 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2> Send A Message to a Pharmacist </h2>
+<form class="site_form" method="post">
+    {% csrf_token %}
+    <table>
+    {% for field in form %}
+    <div class = "form_group">
+        {{ field }}
+        <label class="form_label" for="{{ field.auto_id }}">{{ field.label }}</label>
+    <br>
+    </div>
+    {% endfor %}
+    </table>
+    <button type="submit" class = "smallbtn center">Send</button>
+</form>
+{% endblock %}

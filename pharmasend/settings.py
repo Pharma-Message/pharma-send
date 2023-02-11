@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-rou+^(fylarg6&%s=c7%1r_7y7am=x(u-ydxwmop^z^4y5#@xz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = ['pharma-send.azurewebsites.net', '127.0.0.1', 'localhost', "*"]
 
 CSRF_TRUSTED_ORIGINS = ["https://pharma-send.azurewebsites.net"]
@@ -56,6 +57,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+def show_toolbar(request):
+    return True
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
+}
+
 ROOT_URLCONF = 'pharmasend.urls'
 
 TEMPLATES = [
@@ -82,6 +89,7 @@ WSGI_APPLICATION = 'pharmasend.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< Updated upstream
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
@@ -89,6 +97,19 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'acc.sqlite3'
     }
+=======
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'django',
+        'USER': 'vtran@pharmasend',
+        'PASSWORD': 'Giatuan123',
+        'HOST': 'pharmasend.postgres.database.azure.com',
+        'PORT': '',
+
+        'OPTIONS': {
+            'sslmode': 'require',
+        }
+    },
+>>>>>>> Stashed changes
 }
 
 
@@ -119,6 +140,10 @@ AUTHENTICATION_BACKENDS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -144,7 +169,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 AUTH_USER_MODEL = "accountforms.Account"
 
 ASGI_APPLICATION = 'pharmasend.asgi.application'

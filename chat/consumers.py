@@ -12,7 +12,11 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def disconnect(self , close_code):
         await self.channel_layer.group_discard(
             self.roomGroupName ,
+<<<<<<< Updated upstream
             self.channel_layer
+=======
+            self.channel_name
+>>>>>>> Stashed changes
         )
     async def receive(self, text_data):
         text_data_json = json.loads(text_data)

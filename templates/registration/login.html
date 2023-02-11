@@ -4,6 +4,7 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
+<<<<<<< Updated upstream
 <h2>Log into your account:</h2>
 
 <form method="post">
@@ -11,6 +12,27 @@
   <table border="0" class="logintable" action = "login">
       {{ form.as_table }}
     </table>
+=======
+
+{% if error %}
+<div class="center">
+<p>Error: {{ error }}</p>
+</div>
+{% endif %}
+
+<form class="site_form logintable" method="post">
+  {% csrf_token %}
+  <table>
+    {% for field in form %}
+    <div class = "form_group">
+        {{ field }}
+        <label class="form_label" for="{{ field.auto_id }}">{{ field.label }}</label>
+    <br>
+    </div>
+    {% endfor %}
+  </table>
+  <br>
+>>>>>>> Stashed changes
   <button class="smallbtn"> Log In </button>
 </form>
 {% endblock %}
