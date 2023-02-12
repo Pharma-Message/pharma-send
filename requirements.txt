@@ -5,3 +5,4 @@ daphne
 django-debug-toolbar
 pyodbc 
 psycopg2-binary
+channels
