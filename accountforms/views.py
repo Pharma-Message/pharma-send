@@ -68,11 +68,15 @@ def acc_create(request: HttpRequest):
     form = AccForm()
     if (request.method == 'POST'):
         form = AccForm(data=request.POST)
-            
-        if (form.is_valid()):
-            login(request, form.save(), backend="accountforms.backends.CIModelBackend")
         
-        return render(request, "home.html")
+        print("acc create formvalid: ", form.is_valid())
+        if (form.is_valid()):
+            print("data works")
+            login(request, form.save(), backend="accountforms.backends.CIModelBackend")
+            return render(request, "home.html")
+        else:
+            print(form.errors)
+            return render(request, "registration/acc_registration.html", {'form': form, 'warning': form.errors})
     return render(request, "registration/acc_registration.html", {'form': form})
 
 
