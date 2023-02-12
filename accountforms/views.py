@@ -31,7 +31,7 @@ def doctor_create(request: HttpRequest):
                 acc = Account.objects.get(email__exact=email)
                 acc.duser = d
                 acc.save()
-        return render(request, "registration/acc.html")
+        return account_view(request)
     return render(request, "registration/doctor_registration.html", {'form': form})
 
 def pharmacist_create(request: HttpRequest):
@@ -52,7 +52,7 @@ def pharmacist_create(request: HttpRequest):
                 acc = Account.objects.get(email__exact=email)
                 acc.puser = p
                 acc.save()
-        return render(request, "registration/acc.html")
+        return account_view(request)
     
     return render(request, "registration/pharmacist_registration.html", {'form': form})
 
