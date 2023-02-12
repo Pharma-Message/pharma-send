@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rou+^(fylarg6&%s=c7%1r_7y7am=x(u-ydxwmop^z^4y5#@xz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['pharma-send.azurewebsites.net', '127.0.0.1', 'localhost', "*"]
