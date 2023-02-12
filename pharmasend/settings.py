@@ -89,15 +89,6 @@ WSGI_APPLICATION = 'pharmasend.wsgi.application'
 
 DATABASES = {
     'default': {
-<<<<<<< Updated upstream
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
-    'doctor_doctor': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'acc.sqlite3'
-    }
-=======
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'django',
         'USER': 'vtran@pharmasend',
@@ -109,7 +100,6 @@ DATABASES = {
             'sslmode': 'require',
         }
     },
->>>>>>> Stashed changes
 }
 
 
@@ -169,10 +159,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 AUTH_USER_MODEL = "accountforms.Account"
 
 ASGI_APPLICATION = 'pharmasend.asgi.application'

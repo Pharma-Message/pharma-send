@@ -16,42 +16,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
-<<<<<<< Updated upstream
-from accountforms.views import doctor_create, pharmacist_create, \
-                        login_view, logout_view, acc_create, account_view
-=======
 from accountforms.views import send_order_view, doctor_create, pharmacist_create, login_view, logout_view, acc_create, account_view, register_view
 import pharmasend.settings
->>>>>>> Stashed changes
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'), 
     path('admin/', admin.site.urls),
     #path('accounts/', include('django.contrib.auth.urls')), 
-<<<<<<< Updated upstream
-    path('registration/', TemplateView.as_view(template_name='registration/registration.html'), name='registration'),
-    path('accounts/login', login_view, name="login"),
-    path('accounts/logout', logout_view, name="logout"),
-    path('accounts/view', account_view, name="accountview"),
-=======
     path('registration/', register_view, name='registration'),
     path('order/send', send_order_view, name="send_order"),
     path('accounts/login', login_view, name="login"),
     path('accounts/logout', logout_view, name="logout"),
->>>>>>> Stashed changes
     path('registration/account', acc_create, name='acc_registration'),
     path('registration/doctor', doctor_create, name='doctor_registration'),
     path('registration/pharmacist', pharmacist_create, name='pharmacist_registration'),
     path('registration/hospital', doctor_create, name='hospital_registration'),
-<<<<<<< Updated upstream
-    path('chat/', include('chat.urls'))
-    #path('registration/', TemplateView.as_view(template_name='registration.html'), name='registration')
-
-]
-=======
     path('registration/account_view', account_view, name='acc_view'),
     path('chat/', include('chat.urls'))
     #path('registration/', TemplateView.as_view(template_name='registration.html'), name='registration')
 
 ]
->>>>>>> Stashed changes

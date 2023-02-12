@@ -1,48 +1,14 @@
 from django.shortcuts import render
 
 # Create your views here.
-<<<<<<< Updated upstream
-from accountforms.forms import DoctorForm, PharmacistForm, AuthForm, AccForm
-from django.http import HttpResponse, HttpRequest
-from django.shortcuts import render
-from accountforms.models import Pharmacist, AccountManager, Account
-=======
 from accountforms.forms import OrderForm, DoctorForm, PharmacistForm, AuthForm, AccForm
 from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render, redirect
 from accountforms.models import Pharmacist, Account
->>>>>>> Stashed changes
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.core.serializers import serialize
 from accountforms.backends import CIModelBackend
-<<<<<<< Updated upstream
-
-def doctor_create(request: HttpRequest):
-    form = DoctorForm()
-    if (request.method == 'POST'):
-        form = DoctorForm(request.POST)
-        if (form.is_valid()):
-            form.save()
-        form = DoctorForm()
-    return render(request, "registration/doctor_registration.html", {'form': form})
-
-def pharmacist_create(request: HttpRequest):
-    print(Pharmacist.objects.all().filter(fname__exact="asdf"))
-    form = PharmacistForm()
-    if (request.method == 'POST'):
-        form = PharmacistForm(request.POST)
-        if (form.is_valid()):
-            qs = Account.objects.all().filter(email=form.data['email'])
-            print(qs)
-            print(form.data['email'])
-            if (qs.exists()):
-                #pharmacist = form.save()
-                user = qs.get(email=form.data['email'])
-                print("usertype is ", type(user))
-                
-        form = DoctorForm()
-=======
 from django.contrib.sessions.models import Session
 
 def doctor_create(request: HttpRequest):
@@ -88,7 +54,6 @@ def pharmacist_create(request: HttpRequest):
                 acc.save()
         return render(request, "registration/acc.html")
     
->>>>>>> Stashed changes
     return render(request, "registration/pharmacist_registration.html", {'form': form})
 
 def hospital_create(request: HttpRequest):
@@ -103,34 +68,16 @@ def acc_create(request: HttpRequest):
     form = AccForm()
     if (request.method == 'POST'):
         form = AccForm(data=request.POST)
-<<<<<<< Updated upstream
-        print(request.session.get('user'))
-        print(form.data)
-        print("login", request.POST)
-        for field in form:
-            print("Field Error:", field.name,  field.errors)
-            
-        print("vlid", form.is_valid())
-        if (form.is_valid()):
-            print("WOOOOOO")
-            user = form.save(commit=True)
-            print("saved user")
-            login(request, user, backend="accountforms.backends.CIModelBackend")
-=======
             
         if (form.is_valid()):
             login(request, form.save(), backend="accountforms.backends.CIModelBackend")
->>>>>>> Stashed changes
         
         return render(request, "home.html")
     return render(request, "registration/acc_registration.html", {'form': form})
 
 
 def login_view(request: HttpRequest):
-<<<<<<< Updated upstream
-=======
     print("IP Address for debug-toolbar: " + request.META['REMOTE_ADDR'])
->>>>>>> Stashed changes
     form = AuthForm()
     if (request.method == 'POST'):
         form = AuthForm(request.POST)
@@ -146,12 +93,9 @@ def login_view(request: HttpRequest):
             email = form.data['email']
             password = form.data['password']
             user = authenticate(username=email, password=password)
-<<<<<<< Updated upstream
-=======
             if (user == None):
                 return render(request, "registration/login.html", {'form': form, 'warning': 'Password or username is incorrect'})
 
->>>>>>> Stashed changes
             print(user)
             login(request, user, backend="accountforms.backends.CIModelBackend")
             return render(request, "home.html", {})
@@ -165,12 +109,6 @@ def logout_view(request: HttpRequest):
 
 def account_view(request: HttpRequest):
     if (request.user.is_authenticated):
-<<<<<<< Updated upstream
-        return render(request, "registration/acc.html")
-    else:
-        return render(request, "home.html")
-    
-=======
         dat = {}
         print(request.user.puser)
         if (request.user.puser != None):
@@ -216,4 +154,3 @@ def send_order_view(request: HttpRequest):
             return account_view(request)
     else:
         return render(request, "registration/login.html")
->>>>>>> Stashed changes
