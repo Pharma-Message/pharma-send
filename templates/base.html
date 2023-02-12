@@ -46,13 +46,9 @@
     font-family: 'Sofia Sans', sans-serif;
     text-decoration: none;
   }
-<<<<<<< Updated upstream
-
-=======
   .smallbtn:disabled {
     cursor: not-allowed;
   }
->>>>>>> Stashed changes
   .center {
     margin: auto;
     text-align: center;
@@ -88,10 +84,6 @@
     cursor: text;
     top: 20px;
   }
-<<<<<<< Updated upstream
-  
-=======
->>>>>>> Stashed changes
   .form_label {
     position: absolute;
     top: 0;
@@ -123,17 +115,10 @@
   }
   .logintable {
     width: 60%;
-<<<<<<< Updated upstream
-    border: 3px solid rgb(234, 240, 243);
-    padding: 10px;
-    margin-left: auto;
-    margin-right: auto;
-=======
     margin-left: auto;
     margin-right: auto;
     border: 3px solid rgb(234, 240, 243);
     padding: 10px;
->>>>>>> Stashed changes
   }
 </style>
 
@@ -150,14 +135,6 @@
           Home
         </button>
       </a>
-<<<<<<< Updated upstream
-      <p> Please click here to register with Pharma-send...</p>
-      <a href="{% url 'registration' %}">
-        <button
-          class = "registerbtn"
-          
-          >
-=======
       <a href = "{% url 'acc_view'%}"> 
         <button class = "smallbtn">
           Account
@@ -166,22 +143,17 @@
       <p> Please click here to register with Pharma-send...</p>
       <a href="{% url 'registration' %}">
         <button class = "registerbtn">
->>>>>>> Stashed changes
             Register
           </button>
       </a>
       </body>
       
 
-<<<<<<< Updated upstream
-      <main>
-=======
       <br>
       <main>
         {% if warning %}
         <p class = "center"> {{ warning }} </p>
         {% endif %}
->>>>>>> Stashed changes
         {% block content %}
         {% endblock %}
       </main>

@@ -4,23 +4,6 @@
 {% block title %}Register for an account{% endblock %}
 
 {% block content %}
-<<<<<<< Updated upstream
-{% if user.is_authenticated %}
-  You are already logged in!
-{% else %}
-<p>Which account would you like to create?</p>
-  <a href="{% url 'doctor_registration' %}">Doctor</a>
-
-  <a href="{% url 'pharmacist_registration' %}">Pharmacist</a>
-  <!-- Pharmacist button(need to be created)-->
-
-  <a href="{% url 'hospital_registration' %}" class = "btn" >Hospital</a>
-  <!-- Hospital button(need to be created)-->
-
-  <a href="{% url 'acc_registration' %}" class = "btn" >Account</a>
-  <!-- Hospital button(need to be created)-->
-{% endif %}
-=======
 <div class = "center">
 <h1> User Account </h1>
 <p>
@@ -66,5 +49,4 @@
 
 <br>
 </div>
->>>>>>> Stashed changes
 {% endblock %}
