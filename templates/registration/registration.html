@@ -1,0 +1,52 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Register for an account{% endblock %}
+
+{% block content %}
+<div class = "center">
+<h1> User Account </h1>
+<p>
+{% if user.is_authenticated %}
+  You are already logged in!
+{% else %}
+  <a href="{% url 'acc_registration' %}">
+    <button class = "center smallbtn"> Account </button>
+  </a>
+  {% endif %}
+</p>
+<h1> Secondary Accounts </h1>
+
+{% if user.is_authenticated %}
+<!-- Doctor button(need to be created)-->
+<p>Which account would you like to create?</p>
+
+{% if duser %}
+<a href="{% url 'doctor_registration' %}">
+  <button disabled class = "center smallbtn"> Doctor </button>
+</a>
+<i>Already Registered</i>
+{% else %}
+<a href="{% url 'doctor_registration' %}">
+  <button class = "center smallbtn"> Doctor </button>
+</a>
+{% endif %}
+
+{% if puser %}
+<a href="{% url 'pharmacist_registration' %}">
+  <button disabled class = "center smallbtn"> Pharmacist </button>
+</a>
+<i>Already Registered</i>
+{% else %}
+<a href="{% url 'pharmacist_registration' %}">
+  <button class = " center smallbtn"> Pharmacist </button>
+</a>
+{% endif %}
+
+{% else %}
+<i> You need to be logged in. </i>
+{% endif %}
+
+<br>
+</div>
+{% endblock %}

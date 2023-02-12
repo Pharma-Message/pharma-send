@@ -1,14 +1,162 @@
 <!-- templates/base.html -->
 <!DOCTYPE html>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans&display=swap" rel="stylesheet">
+
+<!-- CSS GOES HERE -->
+<style>
+  html {
+    font-family: 'Sofia Sans', sans-serif;
+  }
+  body {
+    background-color: #da1e1e; 
+  }
+  h1   {color: white; font-weight: bold}
+  p    {color: white;}
+  button {
+    color: #da1e1e; 
+  }
+  button:hover {
+    color: #963c3c;
+  }
+  a {text-decoration: none;}
+
+  .registerbtn {
+    background-color: rgb(234, 240, 243);
+    border: 1px solid  #da1e1e;
+    border-radius: 10px;
+    font-size: 40px;
+    display: block;
+    width: 100%;
+    height: 50px;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .smallbtn {
+    background-color: rgb(234, 240, 243);
+    border: 1px solid  #da1e1e;
+    border-radius: 10px;
+    font-size: 18px;
+    display: block;
+    width: 15%;
+    height: 25px;
+    font-family: 'Sofia Sans', sans-serif;
+    text-decoration: none;
+  }
+  .smallbtn:disabled {
+    cursor: not-allowed;
+  }
+  .center {
+    margin: auto;
+    text-align: center;
+  }
+  .site_form {
+    margin: auto;
+    text-align: center;
+    width: 60%;
+  }
+  .form_group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .form_input {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #963c3c;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 2s;
+  }
+  .form_input::placeholder {
+    color: transparent;
+  }
+  .form_input:placeholder-shown ~ .form_label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+  .form_label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #963c3c;
+  }
+
+  .form_input:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #da1e1e, #963c3c);
+    border-image-slice: 1;
+    transition: border-color 2s;
+  }
+  .form_input:focus ~ .form_label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: rgb(234, 240, 243);
+    font-weight: 700;
+  }
+  .form_input:required, .form_input:invalid {
+    box-shadow: none;
+  }
+  .logintable {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid rgb(234, 240, 243);
+    padding: 10px;
+  }
+</style>
+
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
-</head>
-<body>
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
-</body>
+  <head>
+    <title>Pharma-send</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0">
+    <body>
+      <a href = "{% url 'home'%}">
+        <button class = "smallbtn">
+          Home
+        </button>
+      </a>
+      <a href = "{% url 'acc_view'%}"> 
+        <button class = "smallbtn">
+          Account
+        </button>
+      </a>
+      <p> Please click here to register with Pharma-send...</p>
+      <a href="{% url 'registration' %}">
+        <button class = "registerbtn">
+            Register
+          </button>
+      </a>
+      </body>
+      
+
+      <br>
+      <main>
+        {% if warning %}
+        <p class = "center"> {{ warning }} </p>
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+      </main>
+    </head>
 </html>
+

@@ -26,20 +26,25 @@ SECRET_KEY = 'django-insecure-rou+^(fylarg6&%s=c7%1r_7y7am=x(u-ydxwmop^z^4y5#@xz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = ['pharma-send.azurewebsites.net', '127.0.0.1', 'localhost', "*"]
 
 CSRF_TRUSTED_ORIGINS = ["https://pharma-send.azurewebsites.net"]
                         #https://pharma-send.azurewebsites.net
 
 # Application definition
-
 INSTALLED_APPS = [
+    'daphne',
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sessions',
     'django.contrib.contenttypes',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pharmasend.apps.PharmasendConfig',
+    'accountforms.apps.AccountformsConfig',
+    'chat.apps.ChatConfig',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +56,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+def show_toolbar(request):
+    return True
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
+}
 
 ROOT_URLCONF = 'pharmasend.urls'
 
@@ -78,9 +89,17 @@ WSGI_APPLICATION = 'pharmasend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'django',
+        'USER': 'vtran@pharmasend',
+        'PASSWORD': 'Giatuan123',
+        'HOST': 'pharmasend.postgres.database.azure.com',
+        'PORT': '',
+
+        'OPTIONS': {
+            'sslmode': 'require',
+        }
+    },
 }
 
 
@@ -102,9 +121,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.AllowAllUsersModelBackend",
+    "accountforms.backends.CIModelBackend"
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 
 LANGUAGE_CODE = 'en-us'
 
@@ -128,4 +156,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = BASE_DIR / 'static_files'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
+
+AUTH_USER_MODEL = "accountforms.Account"
+
+ASGI_APPLICATION = 'pharmasend.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
