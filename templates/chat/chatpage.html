@@ -38,7 +38,7 @@
       if (window.location.protocol == 'https:') {
         wsProtocol = 'wss://'
       } else {wsProtocol = 'ws://'}
-      const chatSocket = new WebSocket(wsProtocol + window.location.host + "/");
+      const chatSocket = new WebSocket(wsProtocol + window.location.host + ":6379/");
       chatSocket.onopen = function (e) {
         console.log("The connection was setup successfully !");
       };
