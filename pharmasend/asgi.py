@@ -20,6 +20,8 @@ from django.urls import path, include
 import os
 import django
 
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pharmasend.settings')
+
 application = ProtocolTypeRouter(
     {
         "http" : get_asgi_application(),
