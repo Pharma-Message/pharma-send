@@ -7,3 +7,7 @@ pyodbc
 psycopg2-binary
 channels
 channels-redis
+uvicorn
+fastapi
+uvloop
+httptools
