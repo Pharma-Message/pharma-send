@@ -20,6 +20,7 @@ from django.urls import path, include
 application = ProtocolTypeRouter(
     {
         "http" : get_asgi_application(),
+        "https" : get_asgi_application(),
         "websocket" : AuthMiddlewareStack(
             URLRouter(
                 chat.routing.websocket_urlpatterns
