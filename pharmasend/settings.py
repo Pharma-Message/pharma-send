@@ -166,28 +166,6 @@ CHANNEL_LAYERS = {
     }
 }
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
-    'handlers': {   
-        'logfile': {
-            'class': 'logging.handlers.WatchedFileHandler',
-            'filename': 'D:\home\site\wwwroot\myapp.log'
-        }
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['logfile'],
-            'level': 'ERROR',
-            'propagate': False,
-        }
-    }
-}
 #SECURE_HSTS_SECONDS = 60
 #SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 #SECURE_HSTS_PRELOAD = True
